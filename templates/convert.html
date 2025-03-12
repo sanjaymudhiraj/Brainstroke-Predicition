@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Length Converter</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        align-items: center;
+        height: 100vh;
+
+    }
+    div{
+        margin-left: 600px;
+
+    }
+</style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Length Converter</h2>
+    <label for="inches">Inches: </label>
+    <input type="number" id="inches" oninput="convertLength()">
+    <br><br>
+    <label for="centimeters">Centimeters: </label>
+    <input type="number" id="centimeters" oninput="convertLength()">
+    <br><br>
+    <label for="metersInches">Meters (from Inches): </label>
+    <span id="metersInches"></span>
+    <br><br>
+    <label for="metersCentimeters">Meters (from Centimeters): </label>
+    <span id="metersCentimeters"></span>
+</div>
+
+<script>
+    function convertLength() {
+        var inches = parseFloat(document.getElementById("inches").value);
+        var centimeters = parseFloat(document.getElementById("centimeters").value);
+
+        // Convert inches to meters
+        var metersFromInches = inches * 0.0254;
+
+        // Convert centimeters to meters
+        var metersFromCentimeters = centimeters / 100;
+
+        document.getElementById("metersInches").innerText = metersFromInches.toFixed(4) + " meters";
+        document.getElementById("metersCentimeters").innerText = metersFromCentimeters.toFixed(4) + " meters";
+    }
+</script>
+
+</body>
+</html>
